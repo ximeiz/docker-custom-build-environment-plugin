@@ -192,7 +192,7 @@ public class Docker implements Closeable {
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         int status = launcher.launch()
-                .cmds("ifconfig", "docker0")
+                .cmds("/sbin/ifconfig", "docker0")
                 .stdout(out)
                 .join();
 
