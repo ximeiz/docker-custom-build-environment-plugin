@@ -38,7 +38,7 @@ public class Docker implements Closeable {
     public Docker(DockerServerEndpoint dockerHost, String dockerInstallation, String credentialsId, AbstractBuild build, Launcher launcher, TaskListener listener, boolean verbose, boolean privileged) throws IOException, InterruptedException {
         this.dockerHost = dockerHost;
         this.dockerExecutable = DockerTool.getExecutable(dockerInstallation, Computer.currentComputer().getNode(), listener, build.getEnvironment(listener));
-        this.registryEndpoint = new DockerRegistryEndpoint(null, credentialsId);
+        this.registryEndpoint = new DockerRegistryEndpoint("q1docker-release.canlab.ibm.com", credentialsId);
         this.launcher = launcher;
         this.listener = listener;
         this.build = build;
